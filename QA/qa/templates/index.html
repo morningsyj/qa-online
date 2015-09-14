@@ -1,0 +1,87 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <!-- Bootstrap libraries -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <script src="{% static 'app.js' %}" ></script>
+    <style>
+        .mark-btn-wrapper {
+            text-align: center;
+        }
+        .mark-btn {
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+      <h3 class="navbar-header">
+          图像质量评价系统
+      </h3>
+    </nav>
+    <div id="content" style="width: 1000px; margin: auto;">
+    <div id="user-panel">
+        <label for="user-code-input">请输入代号</label>
+        <input type="text" id="user-code-input"/>
+        <button id="login-confirm-btn" class="btn btn-primary">确认</button>
+        <div>
+            <h3>使用指导</h3>
+            <p>在本次测试中，您将会看到120组图片。显示在屏幕上方的图片是原始图片，另外两张是经过增强算法处理过的失真图片。您需要根据您的主观判断来对这两张图片的质量进行评价。</p>
+            <p>
+                评价的标准包括:
+                <ul>
+                    <li>对原始图片中难以辨别的细节的还原程度</li>
+                    <li>整体色调失真程度</li>
+                    <li>新引入噪声的多少</li>
+                </ul>
+            </p>
+            <p>您将会在每组图片下方看到五个按钮，其中，最左侧的按钮“2”代表您认为左侧图片明显优于右侧的图片，其旁边的按钮“1”代表左侧图片稍优于右侧图片，中间的“0”代表两幅图片基本相近，右侧按钮类似</p>
+        </div>
+    </div>
+    <div id="qa-panel">
+        <div id="remain-notice"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div id="origin-image" style="padding-bottom: 50px"></div>
+{#                <h4 class="text-center">原始图片</h4>#}
+            </div>
+        </div>
+        <div class="row">
+            <div id="first-image" class="col-md-4 col-md-offset-1"></div>
+            <div id="second-image" class="col-md-4 col-md-offset-2"></div>
+        </div>
+        <div id="mark-list" class="row" style="margin-top: 30px">
+            <div class="col-md-2 col-md-offset-1 mark-btn-wrapper">
+	            <button class="mark-btn btn btn-default" data-score="2">2</button>
+            </div>
+            <div class="col-md-2 mark-btn-wrapper">
+                <button class="mark-btn btn btn-default" data-score="1">1</button>
+            </div>
+            <div class="col-md-2 mark-btn-wrapper">
+                <button class="mark-btn btn btn-default" data-score="0">0</button>
+            </div>
+            <div class="col-md-2 mark-btn-wrapper">
+                <button class="mark-btn btn btn-default" data-score="-1">1</button>
+            </div>
+            <div class="col-md-2 mark-btn-wrapper">
+                <button class="mark-btn btn btn-default" data-score="-2">2</button>
+            </div>
+{#            <button class="mark-btn col-md-2 col-md-offset-1 btn btn-default" data-score="2">2</button>#}
+{#            <button class="mark-btn col-md-2 btn btn-default" data-score="1">1</button>#}
+{#            <button class="mark-btn col-md-2 btn btn-default" data-score="0">0</button>#}
+{#            <button class="mark-btn col-md-2 btn btn-default" data-score="-1">1</button>#}
+{#            <button class="mark-btn col-md-2 btn btn-default" data-score="-2">2</button>#}
+        </div>
+    </div>
+    </div>
+</body>
+</html>
