@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^qa/', include('qa.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^q2/', include('q2.urls')),
+    url(r'^q3/', include('q3.urls'))
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

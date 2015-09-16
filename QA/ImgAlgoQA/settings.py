@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qa',
-    'q2'
+    'q2',
+	'q3'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,11 +82,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATICFILES_DIRS = (
+    BASE_DIR + '/static/',
+)
+
 STATIC_URL = '/static/'
-STATIC_ROOT = './static/'
+STATIC_URL
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/QA/media/'
+MEDIA_ROOT = BASE_DIR + '/media/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
